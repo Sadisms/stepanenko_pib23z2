@@ -1,4 +1,4 @@
-package academy.tochkavhoda.figures.v1;
+package academy.tochkavhoda.figures.v2;
 
 import org.junit.jupiter.api.Test;
 

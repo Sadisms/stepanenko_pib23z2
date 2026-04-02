@@ -1,4 +1,4 @@
-package academy.tochkavhoda.figures.v1;
+package academy.tochkavhoda.figures.v2;
 
 import org.junit.jupiter.api.Test;
 
@@ -100,7 +100,7 @@ public class TestCircle {
         Circle circle = new Circle(10, 20, 10);
         circle.resize(0.3);
         assertAll(
-        () -> assertEquals(10, circle.getCenter().getX()),
+                () -> assertEquals(10, circle.getCenter().getX()),
                 () -> assertEquals(20, circle.getCenter().getY()),
                 () -> assertEquals(3, circle.getRadius())
         );
@@ -161,5 +161,4 @@ public class TestCircle {
         Circle circle3 = CircleFactory.createCircle(new Point(10, 20), 1);
         assertEquals(3, CircleFactory.getCircleCount());
     }
-
 }

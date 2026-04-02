@@ -1,8 +1,9 @@
-package academy.tochkavhoda.figures.v1;
+package academy.tochkavhoda.figures.v2;
 
+import academy.tochkavhoda.iface.v2.Stretchable;
 import java.util.Objects;
 
-public class Rectangle {
+public class Rectangle extends Figure implements Stretchable {
     private Point leftTop;
     private Point rightBottom;
 
@@ -50,6 +51,7 @@ public class Rectangle {
         return this.rightBottom.getY() - this.leftTop.getY();
     }
 
+    @Override
     public void moveTo(int x, int y) {
         int length = this.getLength();
         int width = this.getWidth();
@@ -57,13 +59,7 @@ public class Rectangle {
         this.rightBottom = new Point(x + length, y + width);
     }
 
-    public void moveTo(Point point) {
-        int length = this.getLength();
-        int width = this.getWidth();
-        this.leftTop = point;
-        this.rightBottom = new Point(point.getX() + length, point.getY() + width);
-    }
-
+    @Override
     public void moveRel(int dx, int dy) {
         this.leftTop = new Point(
                 this.leftTop.getX() + dx,
@@ -75,6 +71,7 @@ public class Rectangle {
         );
     }
 
+    @Override
     public void resize(double ratio) {
         int newLength = (int)(this.getLength() * ratio);
         int newWidth = (int)(this.getWidth() * ratio);
@@ -84,6 +81,7 @@ public class Rectangle {
         this.rightBottom = new Point(xLeft + newLength, yTop + newWidth);
     }
 
+    @Override
     public void stretch(double xRatio, double yRatio) {
         int newLength = (int)(this.getLength() * xRatio);
         int newWidth = (int)(this.getWidth() * yRatio);
@@ -94,23 +92,22 @@ public class Rectangle {
         this.rightBottom = new Point(xLeft + newLength, yTop + newWidth);
     }
 
+    @Override
     public double getArea() {
         return this.getLength() * this.getWidth();
     }
 
+    @Override
     public double getPerimeter() {
         return 2 * (this.getLength() + this.getWidth());
     }
 
+    @Override
     public boolean isInside(int x, int y) {
         return x >= this.leftTop.getX() &&
                 x <= this.rightBottom.getX() &&
                 y >= this.leftTop.getY() &&
                 y <= this.rightBottom.getY();
-    }
-
-    public boolean isInside(Point point) {
-        return isInside(point.getX(), point.getY());
     }
 
     public boolean isInside(Rectangle rectangle) {

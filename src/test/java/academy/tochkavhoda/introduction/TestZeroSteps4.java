@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestZeroSteps4 {
-    private static final double DOUBLE_EPS = 1E-6;
-
     @Test
     public void testMax() {
         ZeroSteps4 zeroSteps4 = new ZeroSteps4();
